@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Boda - Liza & Alexis</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* --- PANTALLA DE BIENVENIDA --- */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f3f3f3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 1000;
+            transition: opacity 1s ease;
+        }
+
+        #splash-screen h2 {
+            color: #333;
+            font-size: 2.5em;
+        }
+
+        #enter-button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #6a8d86;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        #enter-button:hover {
+            background-color: #587872;
+        }
+
+        /* --- CONTENIDO DE LA INVITACIÓN (Inicialmente oculto) --- */
+        #invitacion-content {
+            display: none; /* Sigue oculto hasta el clic */
+            padding: 20px;
+            text-align: center;
+            background-color: #fdfdfd;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .container h1 {
+            color: #6a8d86;
+        }
+
+        .container audio {
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. PANTALLA DE BIENVENIDA QUE EL USUARIO VE PRIMERO -->
+    <div id="splash-screen">
+        <h2>Liza & Alexis</h2>
+        <button id="enter-button">Abrir Invitación</button>
+    </div>
+
+    <!-- 2. INVITACIÓN REAL (OCULTA) -->
+    <div id="invitacion-content">
+        <div class="container">
+            <h1>¡Te invitamos a nuestra boda!</h1>
+            <p><strong>Liza Muñoz & Alexis Solis</strong></p>
+            <h3>Nuestra Canción</h3>
+            <p>¡Esperamos que te guste!</p>
+
+            <audio controls loop id="nuestra-cancion">
+                 <source src="elvis-presley-cant-help-falling-in-love-audio.mp3" type="audio/mpeg">
+                 Tu navegador no soporta el elemento de audio.
+            </audio>
+
+            <p>Hay momentos en la vida que son muy especiales por si solos, 
+                pero al comprartirlo con personas tan especiales  como tú se convierten 
+                en momentos imposibles de olvidar.</p>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            const enterButton = document.getElementById('enter-button');
+            const splashScreen = document.getElementById('splash-screen');
+            const invitationContent = document.getElementById('invitacion-content');
+            
+            const audio = document.getElementById('nuestra-cancion');
+
+            enterButton.addEventListener('click', () => {
+                audio.play();
+
+                splashScreen.style.opacity = '0';
+                setTimeout(() => {
+                    splashScreen.style.display = 'none';
+                }, 1000); 
+
+                invitationContent.style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
