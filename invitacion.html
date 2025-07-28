@@ -93,8 +93,9 @@
             <h3>Nuestra Canción</h3>
             <p>¡Esperamos que te guste!</p>
 
-            <!-- ****** HEMOS ELIMINADO EL REPRODUCTOR DUPLICADO ****** -->
-            <!-- Este es ahora el ÚNICO reproductor de audio -->
+            <p>Hay momentos en la vida que son muy especiales por si solos, 
+                pero al comprartirlo con personas tan especiales  como tú se convierten 
+                en momentos imposibles de olvidar.</p>
             <audio controls loop id="nuestra-cancion">
                  <source src="elvis-presley-cant-help-falling-in-love-audio.mp3" type="audio/mpeg">
                  Tu navegador no soporta el elemento de audio.
@@ -103,26 +104,21 @@
     </div>
 
     <script>
-        // --- JAVASCRIPT SIMPLIFICADO Y CORREGIDO ---
         window.addEventListener('load', () => {
             const enterButton = document.getElementById('enter-button');
             const splashScreen = document.getElementById('splash-screen');
             const invitationContent = document.getElementById('invitacion-content');
             
-            // Ahora solo seleccionamos UN reproductor de audio
             const audio = document.getElementById('nuestra-cancion');
 
             enterButton.addEventListener('click', () => {
-                // 1. Reproduce la música en el ÚNICO reproductor
                 audio.play();
 
-                // 2. Oculta la pantalla de bienvenida con un efecto suave
                 splashScreen.style.opacity = '0';
                 setTimeout(() => {
                     splashScreen.style.display = 'none';
-                }, 1000); // Coincide con la transición en CSS
+                }, 1000); 
 
-                // 3. Muestra el contenido de la invitación
                 invitationContent.style.display = 'block';
             });
         });
