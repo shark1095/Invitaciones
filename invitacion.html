@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestra Boda - Liza & Alexis</title>
     <link rel="stylesheet" href="invitacion.css">
+    <script src="invitacion.js"></script>
 </head>
 <body>
 
@@ -55,25 +56,5 @@
         </div>
     </div>
 
-    <script>
-        window.addEventListener('load', () => {
-            const enterButton = document.getElementById('enter-button');
-            const splashScreen = document.getElementById('splash-screen');
-            const invitationContent = document.getElementById('invitacion-content');
-            
-            const audio = document.getElementById('nuestra-cancion');
-
-            enterButton.addEventListener('click', () => {
-                audio.play();
-
-                splashScreen.style.opacity = '0';
-                setTimeout(() => {
-                    splashScreen.style.display = 'none';
-                }, 1000); 
-
-                invitationContent.style.display = 'block';
-            });
-        });
-    </script>
 </body>
 </html>
