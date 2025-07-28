@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Boda - Liza & Alexis</title>
+    <link rel="stylesheet" href="invitacion.css">
+</head>
+<body>
+
+    <!-- 1. PANTALLA DE BIENVENIDA QUE EL USUARIO VE PRIMERO -->
+    <div id="splash-screen">
+        <h2>Liza & Alexis</h2>
+        <button id="enter-button">Abrir Invitación</button>
+    </div>
+
+    <!-- 2. INVITACIÓN REAL (OCULTA) -->
+    <div id="invitacion-content">
+        <div class="container">
+            <h1>¡Te invitamos a nuestra boda!</h1>
+            <p><strong>Liza Muñoz & Alexis Solis</strong></p>
+            <h3>Nuestra Canción</h3>
+
+            <audio controls loop id="nuestra-cancion">
+                 <source src="elvis-presley-cant-help-falling-in-love-audio.mp3" type="audio/mpeg">
+                 Tu navegador no soporta el elemento de audio.
+            </audio>
+
+            <p>Hay momentos en la vida que son muy especiales por si solos, 
+                pero al comprartirlo con personas tan especiales  como tú se convierten 
+                en momentos imposibles de olvidar.
+            </p>            
+        </div>
+
+        <div class="countdown-container">
+            <h2>Solo faltan: </h2>
+            <div id="countdown">
+                <div class="time-box">
+                    <span id="days">00</span>
+                    <span>Días</span>
+                </div>
+                <div class="time-box">
+                    <span id="hours">00</span>
+                    <span>Horas</span>
+                </div>
+                <div class="time-box">
+                    <span id="minutes">00</span>
+                    <span>Minutos</span>
+                </div>
+                <div class="time-box">
+                    <span id="seconds">00</span>
+                    <span>Segundos</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            const enterButton = document.getElementById('enter-button');
+            const splashScreen = document.getElementById('splash-screen');
+            const invitationContent = document.getElementById('invitacion-content');
+            
+            const audio = document.getElementById('nuestra-cancion');
+
+            enterButton.addEventListener('click', () => {
+                audio.play();
+
+                splashScreen.style.opacity = '0';
+                setTimeout(() => {
+                    splashScreen.style.display = 'none';
+                }, 1000); 
+
+                invitationContent.style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+       body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* --- PANTALLA DE BIENVENIDA --- */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f3f3f3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 1000;
+            transition: opacity 1s ease;
+        }
+
+        #splash-screen h2 {
+            color: #333;
+            font-size: 2.5em;
+        }
+
+        #enter-button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #6a8d86;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        #enter-button:hover {
+            background-color: #587872;
+        }
+
+        /* --- CONTENIDO DE LA INVITACIÓN (Inicialmente oculto) --- */
+        #invitacion-content {
+            display: none; /* Sigue oculto hasta el clic */
+            padding: 20px;
+            text-align: center;
+            background-color: #fdfdfd;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .container h1 {
+            color: #6a8d86;
+        }
+
+        .container audio {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        /* --- ESTILOS DE LA CUENTA REGRESIVA --- */
+        .countdown-container {
+            margin: 30px 0;
+        }
+        #countdown {
+            display: flex;
+            flex-wrap: wrap; /* Para que se vea bien en móviles */
+            justify-content: center;
+            text-align: center;
+            gap: 15px; /* Espacio entre las cajas */
+        }
+        .time-box {
+            background-color: #f1f3f4;
+            padding: 15px;
+            border-radius: 8px;
+            min-width: 80px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .time-box span:first-child {
+            display: block;
+            font-size: 2.5em; /* Tamaño de los números */
+            font-weight: bold;
+            color: #6a8d86; /* El color verde de tu tema */
+        }
+        .time-box span:last-child {
+            font-size: 0.9em;
+            color: #555;
+            text-transform: uppercase;
+        }
