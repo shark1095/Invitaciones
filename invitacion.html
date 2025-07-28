@@ -19,14 +19,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #f3f3f3; /* Un color de fondo suave */
+            background-color: #f3f3f3;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            z-index: 1000; /* Se asegura de que esté por encima de todo */
-            transition: opacity 1s ease; /* Efecto de desvanecimiento */
+            z-index: 1000;
+            transition: opacity 1s ease;
         }
 
         #splash-screen h2 {
@@ -38,7 +38,7 @@
             padding: 15px 30px;
             font-size: 1.2em;
             color: white;
-            background-color: #6a8d86; /* Un color elegante */
+            background-color: #6a8d86;
             border: none;
             border-radius: 50px;
             cursor: pointer;
@@ -52,7 +52,7 @@
 
         /* --- CONTENIDO DE LA INVITACIÓN (Inicialmente oculto) --- */
         #invitacion-content {
-            display: none; /* Oculto hasta que se haga clic */
+            display: none; /* Sigue oculto hasta el clic */
             padding: 20px;
             text-align: center;
             background-color: #fdfdfd;
@@ -79,11 +79,6 @@
 </head>
 <body>
 
-    <!-- El audio está aquí, pero no es visible inicialmente en la lógica de la página -->
-    <audio id="nuestra-cancion" loop>
-        <source src="elvis-presley-cant-help-falling-in-love-audio.mp3" type="audio/mpeg">
-    </audio>
-
     <!-- 1. PANTALLA DE BIENVENIDA QUE EL USUARIO VE PRIMERO -->
     <div id="splash-screen">
         <h2>Liza & Alexis</h2>
@@ -97,45 +92,39 @@
             <p><strong>Liza Muñoz & Alexis Solis</strong></p>
             <h3>Nuestra Canción</h3>
             <p>¡Esperamos que te guste!</p>
-            <!-- Puedes decidir si muestras los controles o no.
-                 Si la música ya está sonando, quizás no los necesites.
-                 Para dar control al usuario, déjalos. -->
-            <audio controls id="audio-player-visible">
+
+            <!-- ****** HEMOS ELIMINADO EL REPRODUCTOR DUPLICADO ****** -->
+            <!-- Este es ahora el ÚNICO reproductor de audio -->
+            <audio controls loop id="nuestra-cancion">
                  <source src="elvis-presley-cant-help-falling-in-love-audio.mp3" type="audio/mpeg">
+                 Tu navegador no soporta el elemento de audio.
             </audio>
         </div>
     </div>
 
     <script>
-        // --- LA MAGIA ESTÁ AQUÍ ---
+        // --- JAVASCRIPT SIMPLIFICADO Y CORREGIDO ---
         window.addEventListener('load', () => {
             const enterButton = document.getElementById('enter-button');
             const splashScreen = document.getElementById('splash-screen');
             const invitationContent = document.getElementById('invitacion-content');
+            
+            // Ahora solo seleccionamos UN reproductor de audio
             const audio = document.getElementById('nuestra-cancion');
-            const audioPlayerVisible = document.getElementById('audio-player-visible');
 
             enterButton.addEventListener('click', () => {
-                // 1. Reproduce la música (¡Ahora el navegador lo permite!)
+                // 1. Reproduce la música en el ÚNICO reproductor
                 audio.play();
-                
-                // Sincroniza el reproductor visible (opcional pero recomendado)
-                audioPlayerVisible.play();
 
                 // 2. Oculta la pantalla de bienvenida con un efecto suave
                 splashScreen.style.opacity = '0';
                 setTimeout(() => {
                     splashScreen.style.display = 'none';
-                }, 1000); // Coincide con la duración de la transición en CSS
+                }, 1000); // Coincide con la transición en CSS
 
                 // 3. Muestra el contenido de la invitación
                 invitationContent.style.display = 'block';
             });
-
-            // Sincronizar el estado del audio si el usuario interactúa con los controles visibles
-             audio.addEventListener('play', () => audioPlayerVisible.play());
-             audio.addEventListener('pause', () => audioPlayerVisible.pause());
-
         });
     </script>
 </body>
