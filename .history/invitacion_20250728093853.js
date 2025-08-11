@@ -69,34 +69,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Asigna la URL al enlace
     googleCalendarLink.href = googleCalendarUrl;
-
-    // --- GENERACIÓN DE ARCHIVO ICS ---
-const downloadICSButton = document.getElementById("download-ics");
-
-function generateICS(event) {
-    const start = event.startDate.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
-    const end = event.endDate.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
-
-    const icsContent = `BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//TuNombre//TuProducto//ES
-BEGIN:VEVENT
-UID:${Date.now()}@tuevento.com
-DTSTAMP:${start}
-DTSTART:${start}
-DTEND:${end}
-SUMMARY:${event.title}
-DESCRIPTION:${event.description}
-LOCATION:${event.location}
-END:VEVENT
-END:VCALENDAR`;
-
-    const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    downloadICSButton.href = url;
-}
-
-// Llamamos la función cuando el botón esté disponible
-generateICS(eventDetails);
-
 });
