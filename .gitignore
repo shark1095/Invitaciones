@@ -28,3 +28,4 @@ vendor/
 # Ignorar archivos de compilación o distribución si se llegaran a usar
 /dist
 /build
+*.html
