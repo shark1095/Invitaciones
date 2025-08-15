@@ -9,22 +9,11 @@ yarn-debug.log*
 yarn-error.log*
 
 # Ignorar carpetas de dependencias (muy importante para proyectos más grandes)
-# Se añade una barra inclinada al final para asegurar que solo ignore carpetas
-node_modules/
-vendor/
+node_modules
+/vendor
 
 # Ignorar archivos de configuración de editores de código
 .vscode/
 .idea/
 *.sublime-project
 *.sublime-workspace
-
-# Ignorar archivos de variables de entorno (¡Muy importante por seguridad!)
-# Estos archivos nunca deben ser versionados
-.env
-.env.local
-.env.*.local
-
-# Ignorar archivos de compilación o distribución si se llegaran a usar
-/dist
-/build
