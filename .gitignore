@@ -29,3 +29,4 @@ vendor/
 /dist
 /build
 *.html
+*.css

@@ -1,116 +1,189 @@
-       body {
-            font-family: 'Georgia', serif;
-            margin: 0;
-            padding: 0;
-        }
+body {
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+    color: #333;
+}
 
-        /* --- PANTALLA DE BIENVENIDA --- */
-        #splash-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #f3f3f3;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            z-index: 1000;
-            transition: opacity 1s ease;
-        }
+/* --- PANTALLA DE BIENVENIDA --- */
+#splash-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #e6f0ed, #fafafa);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1000;
+    transition: opacity 1s ease;
+}
 
-        #splash-screen h2 {
-            color: #333;
-            font-size: 2.5em;
-        }
+#splash-screen h2 {
+    color: #2f4f4f;
+    font-size: 2.8em;
+    margin-bottom: 20px;
+}
 
-        #enter-button {
-            padding: 15px 30px;
-            font-size: 1.2em;
-            color: white;
-            background-color: #6a8d86;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: background-color 0.3s ease;
-        }
+#enter-button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: white;
+    background-color: #6a8d86;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
-        #enter-button:hover {
-            background-color: #587872;
-        }
+#enter-button:hover {
+    background-color: #587872;
+    transform: scale(1.05);
+}
 
-        /* --- CONTENIDO DE LA INVITACIÓN (Inicialmente oculto) --- */
-        #invitacion-content {
-            display: none; /* Sigue oculto hasta el clic */
-            padding: 20px;
-            text-align: center;
-            background-color: #fdfdfd;
-        }
+/* --- CONTENIDO DE LA INVITACIÓN --- */
+#invitacion-content {
+    display: none; /* oculto hasta dar clic */
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+}
 
-        .container {
-            max-width: 600px;
-            margin: 40px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+.container {
+    max-width: 700px;
+    margin: 30px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
 
-        .container h1 {
-            color: #6a8d86;
-        }
+.container h1 {
+    color: #6a8d86;
+    font-size: 2em;
+    margin-bottom: 15px;
+}
 
-        .container audio {
-            width: 100%;
-            margin-top: 20px;
-        }
+.container audio {
+    width: 100%;
+    margin: 20px 0;
+    border-radius: 8px;
+}
 
-        /* --- ESTILOS DE LA CUENTA REGRESIVA --- */
-        .countdown-container {
-            margin: 30px 0;
-        }
-        #countdown {
-            display: flex;
-            flex-wrap: wrap; /* Para que se vea bien en móviles */
-            justify-content: center;
-            text-align: center;
-            gap: 15px; /* Espacio entre las cajas */
-        }
-        .time-box {
-            background-color: #f1f3f4;
-            padding: 15px;
-            border-radius: 8px;
-            min-width: 80px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        .time-box span:first-child {
-            display: block;
-            font-size: 2.5em; /* Tamaño de los números */
-            font-weight: bold;
-            color: #6a8d86; /* El color verde de tu tema */
-        }
-        .time-box span:last-child {
-            font-size: 0.9em;
-            color: #555;
-            text-transform: uppercase;
-        }
+/* --- ESTILOS DE LA CUENTA REGRESIVA --- */
+.countdown-container {
+    margin: 30px 0;
+}
 
-        /* --- ESTILO DEL BOTÓN DE CALENDARIO --- */
-.calendar-button {
+#countdown {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    gap: 15px;
+}
+
+.time-box {
+    background-color: #f1f3f4;
+    padding: 15px;
+    border-radius: 10px;
+    min-width: 90px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.time-box span:first-child {
+    display: block;
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #6a8d86;
+}
+
+.time-box span:last-child {
+    font-size: 0.9em;
+    color: #444;
+    text-transform: uppercase;
+}
+
+/* --- BOTONES --- */
+.calendar-button, .location-button {
     display: inline-block;
     padding: 12px 25px;
-    background-color: #4285F4; /* Color oficial de Google Calendar */
-    color: white;
-    text-decoration: none;
+    margin: 15px 5px;
+    border-radius: 8px;
     font-weight: bold;
-    border-radius: 5px;
-    margin-top: 10px;
+    text-decoration: none;
     transition: background-color 0.3s ease;
+}
+
+.calendar-button {
+    background-color: #4285F4;
+    color: white;
 }
 
 .calendar-button:hover {
     background-color: #3367D6;
+}
+
+.location-button {
+    background-color: #6a8d86;
+    color: white;
+}
+
+.location-button:hover {
+    background-color: #4f6d67;
+}
+
+/* --- IMÁGENES --- */
+img {
+    max-width: 100%;
+    height: auto;
+    margin: 15px 0;
+    border-radius: 10px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .container h1 {
+        font-size: 1.6em;
+    }
+
+    #splash-screen h2 {
+        font-size: 2em;
+    }
+
+    #enter-button {
+        font-size: 1em;
+        padding: 12px 25px;
+    }
+
+    .time-box {
+        min-width: 70px;
+        padding: 10px;
+    }
+
+    .time-box span:first-child {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .container h1 {
+        font-size: 1.4em;
+    }
+
+    .time-box {
+        min-width: 60px;
+    }
+
+    #splash-screen h2 {
+        font-size: 1.6em;
+    }
 }
