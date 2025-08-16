@@ -282,34 +282,3 @@ img {
     background-color: #4f6d67;
 }
 
-/* --- NOMBRES PRINCIPALES --- */
-.nombres-container {
-    display: flex; /* Activa el modo de alineación flexible */
-    justify-content: space-between; /* Distribuye el espacio entre los elementos */
-    align-items: center; /* Centra los elementos verticalmente */
-    margin: 25px 0; /* Añade un poco de espacio arriba y abajo */
-}
-
-.nombres-container .nombre {
-    font-size: 1.3em;  /* Un tamaño más acorde al diseño original */
-    font-weight: bold;
-    color: #333;
-    flex-grow: 1; /* Permite que los nombres ocupen el espacio sobrante */
-}
-
-/* Alinea el primer nombre a la izquierda */
-.nombres-container .nombre:first-child {
-    text-align: left;
-}
-
-/* Alinea el último nombre a la derecha */
-.nombres-container .nombre:last-child {
-    text-align: right;
-}
-
-.nombres-container .ampersand {
-    font-size: 1.6em; /* Un poco más grande que los nombres para destacar */
-    color: #6a8d86; /* El color principal de la invitación */
-    padding: 0 15px; /* Crea un espacio a los lados para que no se pegue */
-    font-style: italic;
-}
