@@ -23,19 +23,21 @@ body {
 
 #splash-screen h2 {
     color: #2f4f4f;
-    font-size: 2.8em;
+    font-size: 3em;
+    font-weight: bold;
     margin-bottom: 20px;
 }
 
 #enter-button {
-    padding: 15px 30px;
-    font-size: 1.2em;
+    padding: 15px 35px;
+    font-size: 1.3em;
     color: white;
     background-color: #6a8d86;
     border: none;
     border-radius: 50px;
     cursor: pointer;
     margin-top: 20px;
+    font-weight: bold;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -56,15 +58,35 @@ body {
     max-width: 700px;
     margin: 30px auto;
     background: white;
-    padding: 25px;
+    padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .container h1 {
     color: #6a8d86;
-    font-size: 2em;
+    font-size: 2.2em;
+    font-weight: bold;
     margin-bottom: 15px;
+}
+
+.container h3 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 25px;
+    color: #444;
+}
+
+.container p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.container strong {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.2em;
 }
 
 .container audio {
@@ -75,7 +97,25 @@ body {
 
 /* --- ESTILOS DE LA CUENTA REGRESIVA --- */
 .countdown-container {
-    margin: 30px 0;
+    margin: 35px 0;
+}
+
+.countdown-container h1 {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #6a8d86;
+}
+
+.countdown-container h2 {
+    font-size: 1.3em;
+    margin: 5px 0;
+    font-weight: normal;
+}
+
+#wedding-date {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #2f4f4f;
 }
 
 #countdown {
@@ -84,6 +124,7 @@ body {
     justify-content: center;
     text-align: center;
     gap: 15px;
+    margin-top: 15px;
 }
 
 .time-box {
@@ -96,13 +137,14 @@ body {
 
 .time-box span:first-child {
     display: block;
-    font-size: 2.2em;
+    font-size: 2.5em;
     font-weight: bold;
     color: #6a8d86;
 }
 
 .time-box span:last-child {
-    font-size: 0.9em;
+    font-size: 1em;
+    font-weight: bold;
     color: #444;
     text-transform: uppercase;
 }
@@ -114,6 +156,7 @@ body {
     margin: 15px 5px;
     border-radius: 8px;
     font-weight: bold;
+    font-size: 1.1em;
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
@@ -152,38 +195,90 @@ img {
     }
 
     .container h1 {
-        font-size: 1.6em;
+        font-size: 1.8em;
+    }
+
+    .container p {
+        font-size: 1em;
     }
 
     #splash-screen h2 {
-        font-size: 2em;
+        font-size: 2.2em;
     }
 
     #enter-button {
-        font-size: 1em;
-        padding: 12px 25px;
+        font-size: 1.1em;
+        padding: 12px 28px;
     }
 
     .time-box {
-        min-width: 70px;
+        min-width: 75px;
         padding: 10px;
     }
 
     .time-box span:first-child {
-        font-size: 1.8em;
+        font-size: 2em;
     }
 }
 
 @media (max-width: 480px) {
     .container h1 {
-        font-size: 1.4em;
+        font-size: 1.5em;
+    }
+
+    .container p {
+        font-size: 0.95em;
     }
 
     .time-box {
-        min-width: 60px;
+        min-width: 65px;
+    }
+
+    .time-box span:first-child {
+        font-size: 1.6em;
     }
 
     #splash-screen h2 {
-        font-size: 1.6em;
+        font-size: 1.8em;
     }
 }
+
+/* --- TITULOS Y TEXTO FUERA DE .container --- */
+#invitacion-content h1 {
+    color: #6a8d86;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 20px 0 10px 0;
+}
+
+#invitacion-content p {
+    font-size: 1.1em;
+    margin: 8px 0;
+    color: #333;
+}
+
+#invitacion-content p strong {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #2f4f4f;
+}
+
+/* --- BOTONES UNIFICADOS --- */
+.calendar-button, .location-button {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 15px 5px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-decoration: none;
+    color: white;
+    background-color: #6a8d86; /* mismo color en ambos */
+    transition: background-color 0.3s ease;
+}
+
+.calendar-button:hover,
+.location-button:hover {
+    background-color: #4f6d67;
+}
+
