@@ -219,6 +219,10 @@ img {
     .time-box span:first-child {
         font-size: 2em;
     }
+
+    #qr_code{
+        max-width: 60%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -240,6 +244,11 @@ img {
 
     #splash-screen h2 {
         font-size: 1.8em;
+    }
+
+    
+    #qr_code{
+        max-width: 60%;
     }
 }
 
@@ -282,3 +291,7 @@ img {
     background-color: #4f6d67;
 }
 
+
+#qr_code{
+    max-width: 10%;
+}
