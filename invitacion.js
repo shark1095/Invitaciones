@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const invitationContent = document.getElementById('invitacion-content');
     const audio = document.getElementById('nuestra-cancion');
     const googleCalendarLink = document.getElementById('google-calendar-link');
+    const downloadPdfButton = document.getElementById('download-pdf-button');
 
     // --- LÓGICA DE LA PANTALLA DE BIENVENIDA ---
     enterButton.addEventListener('click', () => {
@@ -70,64 +71,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // Asigna la URL al enlace
     googleCalendarLink.href = googleCalendarUrl;
 
-    // --- GENERACIÓN DE ARCHIVO ICS ---
-const downloadICSButton = document.getElementById("download-ics");
+     downloadPdfButton.addEventListener('click', () => {
+        const elementToPrint = document.getElementById('invitacion-content');
 
-function generateICS(event) {
-    const start = event.startDate.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
-    const end = event.endDate.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+        // Ocultar temporalmente el botón de descarga del PDF que se va a generar
+        downloadPdfButton.style.display = 'none';
 
-    const icsContent = `BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//TuNombre//TuProducto//ES
-BEGIN:VEVENT
-UID:${Date.now()}@tuevento.com
-DTSTAMP:${start}
-DTSTART:${start}
-DTEND:${end}
-SUMMARY:${event.title}
-DESCRIPTION:${event.description}
-LOCATION:${event.location}
-END:VEVENT
-END:VCALENDAR`;
-
-    const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    downloadICSButton.href = url;
-}
-
-// Llamamos la función cuando el botón esté disponible
-generateICS(eventDetails);
-
-});
-
-// Espera a que todo el contenido de la página se cargue
-window.addEventListener('load', function() {
-
-    // (El código del contador de tiempo y de la pantalla de bienvenida ya estaría aquí...)
-
-    // --- LÓGICA PARA DESCARGAR EL PDF ---
-
-    // 1. Selecciona el botón de descarga
-    const downloadButton = document.getElementById('download-pdf-button');
-
-    // 2. Selecciona el contenido que quieres convertir a PDF
-    const elementToPrint = document.getElementById('invitacion-content');
-
-    // 3. Añade el evento de clic al botón
-    downloadButton.addEventListener('click', () => {
-
-        // Opciones para la generación del PDF
         const opt = {
-          margin:       0.5, // Margen en pulgadas
-          filename:     'Invitacion-Boda-Liza-y-Alexis.pdf',
-          image:        { type: 'jpeg', quality: 0.98 },
-          html2canvas:  { scale: 2 }, // Aumenta la escala para mejor resolución
-          jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            margin: 0.5,
+            filename: 'Invitacion-Boda-Liza-y-Alexis.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2, useCORS: true }, // 'useCORS: true' puede ayudar si las imágenes no cargan
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
         };
 
-        // Usa la librería html2pdf para generar el archivo
-        html2pdf().from(elementToPrint).set(opt).save();
+        html2pdf().from(elementToPrint).set(opt).save().then(() => {
+            // Volver a mostrar el botón después de que se genere el PDF
+            downloadPdfButton.style.display = 'inline-block';
+        });
     });
-
 });
+
